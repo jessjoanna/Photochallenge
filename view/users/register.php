@@ -8,7 +8,7 @@
 
 			<div class="register01">
 
-				<label class="col-sm-2 control-label" for="registerUsername">Username:</label>
+				<label class="col-sm-2 control-label" for="registerUsername">Gebruikersnaam:</label>
 
 				<div class="form-group<?php if(!empty($errors['username'])) echo ' has-error'; ?>">
 
@@ -19,7 +19,7 @@
 
 				</div>
 
-				<label class="col-sm-2 control-label" for="registerPassword">Password:</label>
+				<label class="col-sm-2 control-label" for="registerPassword">Passwoord:</label>
 
 				<div class="form-group<?php if(!empty($errors['password'])) echo ' has-error'; ?>">
 
@@ -30,13 +30,18 @@
 
 				</div>
 
-			<a href="#" class="register1btn">Start intro</a>
+				<ul>
+					<li><a href="#" class="register1btn">Registreer</a></li>
+					<li><a href="#" class="">Aanmelden</a></li>
+				</ul>
 
 			</div>
 
 			<div class="register02 hidden">
 
 				<section class="add">
+
+					<h2>Kies je profielfoto</h2>
 
 					<div class="form-group<?php if(!empty($errors['picture'])) echo ' has-error'; ?>">
 

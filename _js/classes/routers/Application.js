@@ -4,7 +4,6 @@ var HostView 			= require('../views/HostView.js');
 var VoteView 			= require('../views/VoteView.js');
 var VotedView 		= require('../views/VotedView.js');
 var WinnerView 		= require('../views/WinnerView.js');
-var FormatView 		= require('../views/FormatView.js');
 var GeneralView 	= require('../views/GeneralView.js');
 
 var UserCollection = require('../collections/UserCollection.js');
@@ -20,7 +19,6 @@ var Application = Backbone.Router.extend({
 		"voted": "voted",
 		"winner": "winner",
 		"fotos": "fotos",
-		"formats/:format": "formats",
 		"*actions": "initialize"
 	},
 
@@ -200,15 +198,8 @@ getDateFromToday: function(val){
 		this.empty();
 		this.winner = new WinnerView();
 		$('.container').append(this.winner.render().el);
-	},
-
-	formats: function(id) {
-		this.empty();
-		this.format = new FormatView({
-			id: id
-		});
-		$('.container').append(this.format.render().el);
 	}
+
 });
 
 module.exports = Application;
