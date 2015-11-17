@@ -1,0 +1,69 @@
+// eigen mixins
+
+
+@mixin center($vertical:0) {
+	display: block;
+	margin: $vertical auto;
+}
+
+@mixin xycenterer($horizontal: true, $vertical: true) {
+	position: absolute;
+	@if ($horizontal and $vertical) {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	} @else if ($horizontal) {
+		left: 50%;
+		transform: translate(-50%, 0);
+	} @else if ($vertical) {
+		top: 50%;
+		transform: translate(0, -50);
+	}
+}
+
+//border-box-default
+@mixin border-box-default() {
+	html {
+		@include box-sizing(border-box);
+	}
+
+	*,
+	*:before,
+	*:after {
+		@include box-sizing(inherit);
+	}
+}
+
+
+@mixin full-bg($img) {
+	background-image: url($image_source + $img);
+	background-size: cover;
+}
+
+@mixin bg($img) {
+	background-image: url($image_source + $img);
+}
+
+@mixin fade-to-color($color) {
+	@-webkit-keyframes fade_to_color {
+		from {background: rgb(204, 204, 204);}
+		to {background: $color;}
+	}
+
+	@keyframes fade_to_color {
+		from {background: rgb(204, 204, 204);}
+		to {background: $color;}
+	}
+}
+
+@mixin scale-up($amount) {
+	@-webkit-keyframes scale_up {
+		from {transform: scale(1);}
+		to {transform: scale($amount);}
+	}
+
+	@keyframes scale_up {
+		from {transform: scale(1);}
+		to {transform: scale($amount);}
+	}
+}

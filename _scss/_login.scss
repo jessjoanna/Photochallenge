@@ -1,0 +1,45 @@
+.login {
+
+	header {
+		a {
+		text-decoration: none;
+		float: right;
+		padding: 10px;
+		}
+	}
+
+	input[type="text"],
+	input[type="password"] {
+
+		background-image: none;
+		border: medium none;
+		padding: 14px 12px;
+		width: 255px;
+		display: block;
+		// transition: all 0.3s ease-out;
+		border-radius: 3px;
+		font-size: 2.1em;
+		color: #ee5786;
+		background: #fff;
+
+	}
+
+	input[type="submit"] {
+
+		float: none;
+		background-image: none;
+		border: medium none;
+		padding: 14px 12px;
+		width: 255px;
+		display: block;
+		// transition: all 0.3s ease-out;
+		margin: 30px auto;
+		border-radius: 3px;
+		font-size: 2.6em;
+		background-color: #0070C9 !important;
+		color: #FFF;
+		background: #fff;
+
+	}
+
+}

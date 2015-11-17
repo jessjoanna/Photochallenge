@@ -1,0 +1,34 @@
+.vote,
+.host {
+
+	input[type=range] {
+		-webkit-appearance: none;
+		background-color: #ee4b7a;
+		width: 95%;
+		height: 40px;
+		border-radius: 15px;
+		clear: both;
+		display: block;
+		margin: 20px auto;
+	}
+
+	input[type="range"]::-webkit-slider-thumb {
+	     -webkit-appearance: none;
+	    // background-color: #f00;
+	    // opacity: 0.5;
+	    width: 82px;
+	    height: 82px;
+	    background-image: url('../assets/images/button.png');
+	}
+
+	span {
+		width: 50%;
+		padding: 0 45px;
+	}
+
+	.scale {
+		display: block;
+		width: 100%;
+		// padding: 0;
+	}
+}

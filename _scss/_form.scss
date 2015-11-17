@@ -1,0 +1,62 @@
+$button-default: #ccc;
+$button-danger: red;
+$label-color: #fff;
+
+form {
+	color: $label-color;
+
+	input[type="submit"] {
+		float: right;
+		font-size: 2em;
+		margin-bottom: 15px;
+		margin-right: 15px;
+		overflow: auto;
+	}
+}
+
+.form-group {
+	clear: left;
+	margin-bottom: 15px;
+}
+
+label {
+	color: $label-color;
+	display: inline-block;
+	font-size: 1.4em;
+	font-weight: 700;
+	margin-right: 10px;
+	margin-top: 5px;
+
+	text-align: right;
+
+	float: left;
+	margin-left: 10px;
+	width: 100px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="file"],
+input[type="email"] {
+	background-image: none;
+	border: medium none;
+	padding: 9px 12px;
+	width: 300px;
+	display: block;
+	transition: all 0.3s ease-out;
+	margin: 0 auto;
+	border-radius: 3px;
+	font-size: 1.7em;
+}
+
+input:focus {
+	outline: none;
+}
+
+.btn-default {
+	background-color: $button-default;
+	border: medium none;
+	color: #ffffff;
+	cursor: pointer;
+	padding: 3px;
+}

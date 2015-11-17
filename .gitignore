@@ -1,0 +1,5 @@
+node_modules/
+.sass-cache/
+assets/videos/
+assets/storage/
+js/vendor/
