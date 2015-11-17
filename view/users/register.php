@@ -59,44 +59,10 @@
 
 				</section>
 
-				<ul class="nav_slide">
+				<div class="col-sm-offset-2 col-sm-10">
+					<input id="registerbtn" type="submit" value="Submit" class="btn btn-default">
+				</div>
 
-					<li><img src="./assets/images/nav_active.png"></li>
-					<li><img src="./assets/images/nav_inactive.png"></li>
-					<li><img src="./assets/images/nav_inactive.png"></li>
-
-				</ul>
-
-				<a href="#" class="register2btn">Volgende</a>
-
-			</div>
-
-			<div class="register03 hidden">
-
-				<a href="#" class="register3btn">Volgende</a>
-
-
-				<ul class="nav_slide">
-
-					<li><img src="./assets/images/nav_inactive.png"></li>
-					<li><img src="./assets/images/nav_active.png"></li>
-					<li><img src="./assets/images/nav_inactive.png"></li>
-
-				</ul>
-
-			</div>
-
-			<div class="register04 hidden">
-
-        <div class="col-sm-offset-2 col-sm-10"><input id="registerbtn" type="submit" value="Submit" class="btn btn-default"></div>
-
-				<ul class="nav_slide">
-
-					<li><img src="./assets/images/nav_inactive.png"></li>
-					<li><img src="./assets/images/nav_inactive.png"></li>
-					<li><img src="./assets/images/nav_active.png"></li>
-
-				</ul>
 
 			</div>
 

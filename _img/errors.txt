@@ -1,1 +1,0 @@
-[Thu Mar 26 2015 00:10:04 GMT+0100 (CET)] Layer "+": Expected Either a default asset specification or a layer asset specification but "+" found.

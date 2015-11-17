@@ -74,23 +74,6 @@ function show2(e){
 	register2btn.addEventListener('click', show3);
 }
 
-function show3(e){
-	e.preventDefault();
-
-	register2.classList.add('hidden');
-	register3.classList.remove('hidden');
-
-	register3btn = document.querySelector('.register3btn');
-	register3btn.addEventListener('click', show4);
-}
-
-function show4(e){
-	e.preventDefault();
-
-	register3.classList.add('hidden');
-	register4.classList.remove('hidden');
-}
-
 function getParameterByName(name) {
    	name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
    	var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),

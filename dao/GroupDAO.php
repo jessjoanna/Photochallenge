@@ -35,7 +35,8 @@ class GroupDAO extends DAO {
 	}
 
 	public function selectAllByGroupId($id) {
-		$sql = "SELECT * FROM `p_groups` WHERE `group_id` = :id";
+		$sql = "SELECT * FROM `p_groups`
+		INNER JOIN `p_users` ON p_users.id = p_groups.user_id WHERE `group_id` = :id";
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':id', $id);
 		$stmt->execute();
@@ -50,16 +51,13 @@ class GroupDAO extends DAO {
 		return $stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
 
-	// public function selectGroupMembersByUserId($id) {
-	// 	$sql = "SELECT g.*, u.*, gn.name AS genre FROM p_groups as g
-	// 	JOIN p_users AS u on u.id = g.user_id
-	// 	JOIN p_genre AS gn ON gn.id = u.genre_id
-	// 	WHERE group_id IN (SELECT MAX(group_id) FROM `p_groups` WHERE user_id = :id)";
-	// 	$stmt = $this->pdo->prepare($sql);
-	// 	$stmt->bindValue(':id', $id);
-	// 	$stmt->execute();
-	// 	return $stmt->fetchAll(PDO::FETCH_ASSOC);
-	// }
+	public function selectGroupMembersByUserId($id){
+ 		$sql = "SELECT * FROM  `p_groups` INNER JOIN  `p_users` ON p_users.id = p_groups.user_id WHERE `group_id` = :id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':id', $id);
+		$stmt->execute();
+		return $stmt->fetchAll(PDO::FETCH_ASSOC);
+	}
 
 	public function deleteGroup($id){
 	    $sql = "DELETE FROM `p_groups`
