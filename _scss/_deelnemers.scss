@@ -9,9 +9,9 @@
 
 	}
 
-	.name {
+	.groep {
 		display: block;
-		margin: 0 10px;
+		margin: 20px;
 		background-color: #0070C9;
 		text-align: center;
 	}
@@ -28,21 +28,5 @@
 		}
 
 	}
-
-}
-
-.message {
-
-	position: absolute;
-	bottom: 50px;
-	z-index: 2;
-	margin-top: 160px;
-	display: block;
-	width: 100%;
-	background-color: #0070C9;
-	padding: 25px;
-	text-align: center;
-	font-size: 2.2em !important;
-	line-height: 38px;
 
 }

@@ -193,9 +193,9 @@ input:focus {
   max-width: 70px;
   max-height: 70px;
 }
-.tbody .name {
+.tbody .groep {
   display: block;
-  margin: 0 10px;
+  margin: 20px;
   background-color: #0070C9;
   text-align: center;
 }
@@ -207,103 +207,6 @@ input:focus {
   bottom: 10px;
   position: relative;
   padding: 0;
-}
-
-.message {
-  position: absolute;
-  bottom: 50px;
-  z-index: 2;
-  margin-top: 160px;
-  display: block;
-  width: 100%;
-  background-color: #0070C9;
-  padding: 25px;
-  text-align: center;
-  font-size: 2.2em !important;
-  line-height: 38px;
-}
-
-.winnaar article .winner {
-  width: 87%;
-  display: block;
-  margin: 0 auto;
-  position: relative;
-  margin-bottom: 60px;
-}
-.winnaar article .winner .winner_image {
-  position: relative;
-  left: 95px;
-  top: 55px;
-  border-radius: 100%;
-  box-shadow: 0 0 70px #52B9A7;
-}
-.winnaar article .winner .winner_bg {
-  position: absolute;
-  z-index: 0;
-}
-.winnaar article .winner2 .winner_info {
-  width: 300px;
-  position: relative;
-  z-index: 3;
-}
-.winnaar article .winner2 .winner_info h2 {
-  color: #52B9A7;
-  font-size: 5em;
-}
-.winnaar article .winner2 .winner_info .eindscore {
-  font-size: 7em;
-}
-.winnaar article .winner2 .buttons {
-  display: block;
-  margin: 0 auto;
-  width: 425px;
-  margin-top: 40px;
-}
-.winnaar article .winner2 .buttons li {
-  display: inline;
-}
-.winnaar article .winner2 .buttons li .foto {
-  padding: 2px 30px;
-  border-radius: 10px;
-  background-color: #EE5786;
-}
-.winnaar article .winner2 .buttons li .replay {
-  padding: 2px 30px;
-  border-radius: 10px;
-  background-color: #52B9A7;
-}
-.winnaar article .winner2 .buttons li a {
-  color: #FCFF32;
-  text-decoration: none;
-}
-
-.vote input[type=range],
-.host input[type=range] {
-  -webkit-appearance: none;
-  background-color: #ee4b7a;
-  width: 95%;
-  height: 40px;
-  border-radius: 15px;
-  clear: both;
-  display: block;
-  margin: 20px auto;
-}
-.vote input[type="range"]::-webkit-slider-thumb,
-.host input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 82px;
-  height: 82px;
-  background-image: url("../assets/images/button.png");
-}
-.vote span,
-.host span {
-  width: 50%;
-  padding: 0 45px;
-}
-.vote .scale,
-.host .scale {
-  display: block;
-  width: 100%;
 }
 
 html {
@@ -545,19 +448,6 @@ nav ul {
   width: 165px;
   height: 165px;
   cursor: pointer;
-}
-.register .register03 {
-  height: 568px;
-}
-.register .register04 {
-  height: 568px;
-}
-.register .register04 #registerbtn {
-  width: 271px;
-  height: 53px;
-  position: absolute;
-  top: 50%;
-  left: 7.5%;
 }
 
 div.images_wrapper {

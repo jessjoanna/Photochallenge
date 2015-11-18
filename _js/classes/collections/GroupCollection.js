@@ -7,17 +7,18 @@ var GroupCollection = Backbone.Collection.extend({
 
 	initialize: function(options){
 		if(options) {
-			this.user_id = options.user_id;
+			console.log(this.groupname);
+			this.groupname = options.groupname;
 		}
 	},
 
 	comparator: function(object) {
-		return object.get("id");
+		return object.get("groupname");
 	},
 
-	methodUrl: function(method) {
-		if(method === "read" && this.user_id) {
-			this.url = 'api/group/' + this.user_id;
+	methodUrl: function(method){
+		if(method === "read" && this.groupname) {
+			this.url = 'api/group/' + this.groupname;
 			return;
 		}
 		this.url = 'api/group';

@@ -10,10 +10,25 @@ class GroupDAO extends DAO {
 		return $stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
 
+	public function selectAllWithUsers(){
+		$sql = "SELECT * FROM `p_groups` INNER JOIN `p_users` ON p_users.group_id = p_groups.id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->execute();
+		return $stmt->fetchAll(PDO::FETCH_ASSOC);
+	}
+
 	public function selectById($id) {
 		$sql = "SELECT * FROM `p_groups` WHERE `id` = :id";
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':id', $id);
+		$stmt->execute();
+		return $stmt->fetch(PDO::FETCH_ASSOC);
+	}
+
+	public function selectByGroupName($groupname) {
+		$sql = "SELECT * FROM `p_groups` WHERE `groupname` = :groupname";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':groupname', $groupname);
 		$stmt->execute();
 		return $stmt->fetch(PDO::FETCH_ASSOC);
 	}
@@ -34,14 +49,14 @@ class GroupDAO extends DAO {
 		return $stmt->fetch(PDO::FETCH_ASSOC);
 	}
 
-	public function selectAllByGroupId($id) {
-		$sql = "SELECT * FROM `p_groups`
-		INNER JOIN `p_users` ON p_users.id = p_groups.user_id WHERE `group_id` = :id";
-		$stmt = $this->pdo->prepare($sql);
-		$stmt->bindValue(':id', $id);
-		$stmt->execute();
-		return $stmt->fetchAll(PDO::FETCH_ASSOC);
-	}
+	// public function selectAllByGroupId($id) {
+	// 	$sql = "SELECT * FROM `p_groups`
+	// 	INNER JOIN `p_users` ON p_users.id = p_groups.user_id WHERE `group_id` = :id";
+	// 	$stmt = $this->pdo->prepare($sql);
+	// 	$stmt->bindValue(':id', $id);
+	// 	$stmt->execute();
+	// 	return $stmt->fetchAll(PDO::FETCH_ASSOC);
+	// }
 
 	public function selectAllDistinctGroups() {
 		$sql = "SELECT * FROM `p_groups` GROUP BY group_id
@@ -51,13 +66,13 @@ class GroupDAO extends DAO {
 		return $stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
 
-	public function selectGroupMembersByUserId($id){
- 		$sql = "SELECT * FROM  `p_groups` INNER JOIN  `p_users` ON p_users.id = p_groups.user_id WHERE `group_id` = :id";
-		$stmt = $this->pdo->prepare($sql);
-		$stmt->bindValue(':id', $id);
-		$stmt->execute();
-		return $stmt->fetchAll(PDO::FETCH_ASSOC);
-	}
+	// public function selectGroupMembersByUserId($id){
+ // 		$sql = "SELECT * FROM  `p_groups` INNER JOIN  `p_users` ON p_users.id = p_groups.user_id WHERE `group_id` = :id";
+	// 	$stmt = $this->pdo->prepare($sql);
+	// 	$stmt->bindValue(':id', $id);
+	// 	$stmt->execute();
+	// 	return $stmt->fetchAll(PDO::FETCH_ASSOC);
+	// }
 
 	public function deleteGroup($id){
 	    $sql = "DELETE FROM `p_groups`
@@ -84,12 +99,11 @@ class GroupDAO extends DAO {
 	public function insert($data) {
 		$errors = $this->getValidationErrors($data);
 		if(empty($errors)) {
-			$sql = "INSERT INTO `p_groups` (`user_id`, `group_id`, `day`, `start_date`) VALUES (:user_id, :group_id, :day, :start_date)";
+			$sql = "INSERT INTO `p_groups` (`day`, `start_date`, `groupname`) VALUES (:day, :start_date, :groupname)";
 	        $stmt = $this->pdo->prepare($sql);
-	        $stmt->bindValue(':user_id', $data['user_id']);
-	        $stmt->bindValue(':group_id', $data['group_id']);
 	        $stmt->bindValue(':day', $data['day']);
 	        $stmt->bindValue(':start_date', $data['start_date']);
+	        $stmt->bindValue(':groupname', $data['groupname']);
 			if($stmt->execute()) {
 				$insertedId = $this->pdo->lastInsertId();
 				return $this->selectById($insertedId);
@@ -100,18 +114,16 @@ class GroupDAO extends DAO {
 
 	public function getValidationErrors($data) {
 		$errors = array();
-		if(empty($data['user_id'])) {
-			$errors['user_id'] = "please enter the user_id";
-		}
-	    if(empty($data['group_id'])) {
-	        $errors['group_id'] = 'please enter the group_id';
-	    }
 	    if(!isset($data['day'])) {
 	        $errors['day'] = 'please enter the day';
 	    }
 	    if(empty($data['start_date'])) {
 	        $errors['start_date'] = 'please enter the start_date';
 	    }
+	    if(empty($data['groupname'])) {
+	        $errors['groupname'] = 'please enter the groupname';
+	    }
+
 		return $errors;
 	}
 

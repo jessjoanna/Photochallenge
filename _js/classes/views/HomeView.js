@@ -1,74 +1,48 @@
 var template = require('../../../_hbs/home.hbs');
 
-var UserCollection = require('../collections/UserCollection.js');
 var GroupCollection = require('../collections/GroupCollection.js');
-var UserFirstView = require('../views/UserFirstView.js');
+
+var GroepOverzichtView = require('../views/GroepOverzichtView.js');
 
 var HomeView = Backbone.View.extend({
 
 	template: template,
-	tagName: 'div',
-	className: 'deelnemers',
+	tagName: 'section',
+	className: 'groepen',
 
 	events: {
-		'click .vote': 'clickVote',
-		'click .host': 'clickHost',
-		'click .winner': 'clickWinner',
+		'click .add_group': 'clickAddGroup',
 	},
 
 	initialize: function(){
-		this.setUser();
-	},
-
-	setUser: function(){
-		this.user = new UserCollection({ user: 'self' });
-		this.listenTo(this.user, 'sync', this.setGroup);
-		this.user.fetch();
-	},
-
-	setGroup: function(){
-		console.log('setGroup', this.user.models[0].attributes.id);
-		var userId = this.user.models[0].attributes.id;
-		this.groupCollection = new GroupCollection({ user_id: userId });
-		this.listenTo(this.groupCollection, 'sync', this.renderUsers);
+		this.groupCollection = new GroupCollection();
+		this.listenTo(this.groupCollection, 'sync', this.renderGroups);
 		this.groupCollection.fetch();
 	},
 
-	clickHost: function(e){
+	clickAddGroup: function(e){
 		e.preventDefault();
-		this.navigateTo('host');
-	},
-
-	clickVote: function(e){
-		e.preventDefault();
-		this.navigateTo('vote');
-	},
-
-	clickWinner: function(e){
-		e.preventDefault();
-		this.navigateTo('winner');
+		this.navigateTo('addGroup');
 	},
 
 	navigateTo: function(location){
 		Window.Application.navigate(location, {trigger: true});
 	},
 
-	renderUsers: function(){
+	renderGroups: function(){
 		this.$users.empty();
-		this.groupCollection.forEach(this.renderUser, this);
+		this.groupCollection.forEach(this.renderGroup, this);
 	},
 
-	renderUser: function(model){
-		var view = new UserFirstView({
+	renderGroup: function(model){
+		var view = new GroepOverzichtView({
 			model: model
 		});
-
 		this.$users.append(view.render().el);
 	},
 
 	render: function(){
-
-		this.$el.html(this.template());
+		this.$el.html(this.template);
 		this.$users = this.$el.find('.tbody');
 		return this;
 

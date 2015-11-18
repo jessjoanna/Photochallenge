@@ -1,10 +1,9 @@
 var Group = Backbone.Model.extend({
 
 	defaults: {
-		"user_id": "",
-		"group_id": "",
 		"day": "",
-		"start_date": ""
+		"start_date": "",
+		"groupname": ""
 	},
 
 	urlRoot: 'api/group'

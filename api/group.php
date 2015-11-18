@@ -8,9 +8,21 @@ $app->get('/group/?', authorize() ,function() use ($groupDAO){
     exit();
 });
 
+// $app->get('/group/?', authorize() ,function() use ($groupDAO){
+//     header("Content-Type: application/json");
+//     echo json_encode($groupDAO->selectAllWithUsers(), JSON_NUMERIC_CHECK);
+//     exit();
+// });
+
 $app->get('/group/:id/?', authorize(), function($id) use ($groupDAO){
     header("Content-Type: application/json");
-    echo json_encode($groupDAO->selectGroupMembersByUserId($id), JSON_NUMERIC_CHECK);
+    echo json_encode($groupDAO->selectById($id), JSON_NUMERIC_CHECK);
+    exit();
+});
+
+$app->get('/group/:groupname/?', authorize(), function($groupname) use ($groupDAO){
+    header("Content-Type: application/json");
+    echo json_encode($groupDAO->selectByGroupName($groupname), JSON_NUMERIC_CHECK);
     exit();
 });
 

@@ -106,29 +106,11 @@ class UsersController extends Controller {
 				'username' => $_POST['username'],
 				'picture' => $_FILES['picture']['name'],
 				'password' => $hasher->hashPassword($_POST['password']),
-				'role' => 1
+				'role' => 1,
+				'group_id' => 0
 			));
 
-			/* add user to group */
 			if(!empty($inserteduser)) {
-
-				$group_id = $this->getNewGroupId();
-
-				$data = array(
-					'user_id' => $inserteduser['id'],
-					'group_id' => $group_id,
-					'day' => 0,
-					'start_date' => date("Y-m-d")
-				);
-
-				if(is_null($data['group_id'])){
-					$data['group_id'] = 1;
-				}
-
-				$insertedgroup = $this->groupDAO->insert($data);
-			}
-
-			if(!empty($insertedgroup)) {
 				$_SESSION['info'] = 'Registratie Succesvol!';
 				$_SESSION['user'] = $inserteduser;
 				$this->redirect('index.php');
@@ -138,16 +120,16 @@ class UsersController extends Controller {
 		$this->set('errors', $errors);
 	}
 
-	public function getNewGroupId(){
+	// public function getNewGroupId(){
 
-		$membersInGroup = $this->groupDAO->countMembersInGroup();
+	// 	$membersInGroup = $this->groupDAO->countMembersInGroup();
 
-		if($membersInGroup['members'] >= 3 ){
-			return $membersInGroup['id']+1;
-		}else{
-			return $membersInGroup['id'];
-		}
-	}
+	// 	if($membersInGroup['members'] >= 3 ){
+	// 		return $membersInGroup['id']+1;
+	// 	}else{
+	// 		return $membersInGroup['id'];
+	// 	}
+	// }
 
 	public function _handleImageUpload($image){
 			/* Process image */
