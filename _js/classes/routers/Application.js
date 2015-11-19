@@ -1,12 +1,10 @@
 var HomeView 			= require('../views/HomeView.js');
-var GroupAddView = require('../views/GroupAddView.js');
 var GroepDetailView = require('../views/GroepDetailView.js');
 
 var Application = Backbone.Router.extend({
 
 	routes: {
 		"home": "home",
-		"addGroup": "addGroup",
 		"group/:groupname": "group",
 		"*actions": "default"
 	},
@@ -23,12 +21,6 @@ var Application = Backbone.Router.extend({
 		this.empty();
 		this.home = new HomeView();
 		$('.container').append(this.home.render().el);
-	},
-
-	addGroup: function(){
-		this.empty();
-		this.addgroep = new GroupAddView();
-		$('.container').append(this.addgroep.render().el);
 	},
 
 	group: function(groupname){

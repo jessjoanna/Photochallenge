@@ -11,7 +11,7 @@ var HomeView = Backbone.View.extend({
 	className: 'groepen',
 
 	events: {
-		'click .add_group': 'clickAddGroup',
+		'click .add': 'clickAddGroup',
 		'input .filter': 'inputFilter'
 	},
 
@@ -23,7 +23,15 @@ var HomeView = Backbone.View.extend({
 
 	clickAddGroup: function(e){
 		e.preventDefault();
-		this.navigateTo('addGroup');
+		if(this.$el.find('.groupname').val() === ""){
+			this.$el.find('.groupname').addClass('error');
+		}
+
+		this.groupCollection.create({
+			groupname: this.$el.find('.groupname').val(),
+			day: 0,
+			start_date: moment().format('YYYY-MM-DD')
+		});
 	},
 
 	inputFilter: function(e){
