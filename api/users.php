@@ -20,7 +20,6 @@ $app->get('/users/:id/?', authorize(), function($id) use ($userDAO){
     exit();
 });
 
-
 $app->get('/users/login/:mail/?', authorize(), function($mail) use ($userDAO){
     header("Content-Type: application/json");
     echo json_encode($userDAO->selectByMail($mail), JSON_NUMERIC_CHECK);

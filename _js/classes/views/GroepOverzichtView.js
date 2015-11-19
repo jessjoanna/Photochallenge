@@ -35,7 +35,6 @@ var GroepOVerzichtView = Backbone.View.extend({
 			}
 		});
 
-		console.log(this.userNow);
 	},
 
 	clickAdd: function(e){

@@ -1,4 +1,4 @@
-var template = require('../../../_hbs/groep_detail.hbs');
+var template = require('../../../_hbs/challenge_detail.hbs');
 
 var Group = require('../models/Group.js');
 var Color = require('../models/Color.js');
@@ -7,13 +7,14 @@ var Object = require('../models/Object.js');
 var ChallengeCollection = require('../collections/ChallengeCollection.js');
 var ColorCollection = require('../collections/ColorCollection.js');
 var ObjectCollection = require('../collections/ObjectCollection.js');
-//var ChallengeDetailView = require('./ChallengeDetailView.js');
 
-var GroepDetailView = Backbone.View.extend({
+console.log('ChallengeDetailView');
+
+var ChallengeDetailView = Backbone.View.extend({
 
 	template: template,
 	section: 'section',
-	className: 'groepdetail',
+	className: 'challengedetail',
 
 	initialize: function(options){
 
@@ -28,22 +29,6 @@ var GroepDetailView = Backbone.View.extend({
 		this.colorCollection.fetch();
 		this.challengeCollection.fetch();
 		this.objectCollection.fetch();
-
-		if(options && options.groupname){
-
-			this.model = new Group();
-			this.model.set('groupname', options.groupname);
-
-			this.model.fetch({
-				success: function(model, response){
-					if(response.length === 0){
-						Window.Application.navigate('home', {trigger: true});
-					}
-				}
-			});
-
-			this.listenTo(this.model, 'sync', this.render);
-		}
 	},
 
 	setColor: function(){
@@ -62,8 +47,7 @@ var GroepDetailView = Backbone.View.extend({
 		});
 
 		this.listenTo(this.randomColor, 'sync', this.render);
-		// console.log(this.randomColor);
-
+		console.log(this.randomColor);
 	},
 
 	setObject: function(){
@@ -83,7 +67,6 @@ var GroepDetailView = Backbone.View.extend({
 
 		this.listenTo(this.randomObject, 'sync', this.render);
 		console.log(this.randomObject);
-
 	},
 
 	setChallenge: function(){
@@ -91,8 +74,7 @@ var GroepDetailView = Backbone.View.extend({
 	},
 
 	render: function(){
-		this.$el.html(this.template(this.model.attributes));
-		// this.$test = this.$el.find('.test');
+		this.$el.html(this.template(this.randomColor.attributes));
 		return this;
 	}
 
@@ -100,4 +82,4 @@ var GroepDetailView = Backbone.View.extend({
 
 });
 
-module.exports = GroepDetailView;
+module.exports = ChallengeDetailView;

@@ -8,9 +8,9 @@ $app->get('/fotos/?', authorize(), function() use ($fotosDAO){
     exit();
 });
 
-$app->get('/fotos/:id/?', authorize(), function() use ($fotosDAO){
+$app->get('/fotos/:id/?', authorize(), function($id) use ($fotosDAO){
     header("Content-Type: application/json");
-    echo json_encode($fotosDAO->selectById(), JSON_NUMERIC_CHECK);
+    echo json_encode($fotosDAO->selectById($id), JSON_NUMERIC_CHECK);
     exit();
 });
 
