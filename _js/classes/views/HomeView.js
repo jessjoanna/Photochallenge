@@ -12,6 +12,7 @@ var HomeView = Backbone.View.extend({
 
 	events: {
 		'click .add_group': 'clickAddGroup',
+		'input .filter': 'inputFilter'
 	},
 
 	initialize: function(){
@@ -25,12 +26,29 @@ var HomeView = Backbone.View.extend({
 		this.navigateTo('addGroup');
 	},
 
+	inputFilter: function(e){
+		e.preventDefault();
+		var input = $(e.currentTarget).val().toLowerCase();
+		// console.log(input);
+
+		if(input !== ""){
+			this.renderFilteredGroups(this.groupCollection.filterGroups(input));
+		}else{
+			this.groupCollection.fetch();
+		}
+	},
+
 	navigateTo: function(location){
 		Window.Application.navigate(location, {trigger: true});
 	},
 
+	renderFilteredGroups: function(groups){
+		this.$groups.empty();
+		groups.forEach(this.renderGroup, this);
+	},
+
 	renderGroups: function(){
-		this.$users.empty();
+		this.$groups.empty();
 		this.groupCollection.forEach(this.renderGroup, this);
 	},
 
@@ -38,12 +56,12 @@ var HomeView = Backbone.View.extend({
 		var view = new GroepOverzichtView({
 			model: model
 		});
-		this.$users.append(view.render().el);
+		this.$groups.append(view.render().el);
 	},
 
 	render: function(){
 		this.$el.html(this.template);
-		this.$users = this.$el.find('.tbody');
+		this.$groups = this.$el.find('.tbody');
 		return this;
 
 	}

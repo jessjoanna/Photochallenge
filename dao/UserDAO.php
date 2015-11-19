@@ -56,12 +56,13 @@ class UserDAO extends DAO {
 	public function insert($data) {
 		$errors = $this->getValidationErrors($data);
 		if(empty($errors)) {
-			$sql = "INSERT INTO `p_users` (`username`, `picture`, `password`, `role`) VALUES (:username, :picture, :password, :role)";
+			$sql = "INSERT INTO `p_users` (`username`, `picture`, `password`, `role`, `group_id`) VALUES (:username, :picture, :password, :role, :group_id)";
 	        $stmt = $this->pdo->prepare($sql);
 	        $stmt->bindValue(':username', $data['username']);
 	        $stmt->bindValue(':picture', $data['picture']);
 	        $stmt->bindValue(':password', $data['password']);
 	        $stmt->bindValue(':role', $data['role']);
+	        $stmt->bindValue(':group_id', $data['group_id']);
 			if($stmt->execute()) {
 				$insertedId = $this->pdo->lastInsertId();
 				return $this->selectById($insertedId);
@@ -70,6 +71,29 @@ class UserDAO extends DAO {
 		return false;
 	}
 
+	public function update($id, $data){
+		$errors = $this->getValidationErrors($data);
+		if(empty($errors)){
+			$sql = "UPDATE `p_users`
+											SET `group_id`= :group_id,
+															`username` = :username,
+															`picture` = :picture,
+															`password` = :password,
+															`role`= :role,
+											WHERE `id` = :id";
+			$stmt = $this->pdo->prepare($sql);
+			$stmt->bindValue(':group_id', $data['group_id']);
+			$stmt->bindValue(':username', $data['username']);
+			$stmt->bindValue(':password', $data['password']);
+			$stmt->bindValue(':role', $data['role']);
+			$stmt->bindValue(':picture', $data['picture']);
+			$stmt->bindvalue(':id', $id);
+			if($stmt->execute()){
+				return $this->selectById($id);
+			}
+		}
+		return false;
+	}
 
 	public function getValidationErrors($data) {
 		$errors = array();
@@ -82,9 +106,6 @@ class UserDAO extends DAO {
 	    }
 	    if(empty($data['password'])) {
 	        $errors['password'] = 'please enter the password';
-	    }
-	    if(empty($data['role'])) {
-	        $errors['role'] = 'please enter the role';
 	    }
 		return $errors;
 	}

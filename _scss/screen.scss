@@ -31,12 +31,6 @@ h2 {
 
 }
 
-header {
-	h1 {
-		display: none;
-	}
-}
-
 p {
 	font-size: 1.5em;
 	line-height: 1.5em;
@@ -224,8 +218,8 @@ nav {
 			background-image: none;
 			border: medium none;
 			padding: 14px 12px;
-			width: 255px;
-			display: block;
+			width: 235px;
+			//display: block;
 			transition: all 0.3s ease-out;
 			margin: 30px auto;
 			border-radius: 3px;
@@ -288,3 +282,9 @@ float: left;
 	padding: 12px;
 	text-decoration: none;
 }
+
+.filter {
+	margin-bottom: 50px;
+	padding: 12px;
+}
+

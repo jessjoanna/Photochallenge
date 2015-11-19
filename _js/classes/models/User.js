@@ -4,7 +4,8 @@ var User = Backbone.Model.extend({
 		"username": "",
 		"picture": "",
 		"password": "",
-		"role": ""
+		"role": "",
+		"group_id": 0
 	},
 
 	urlRoot: 'api/users'

@@ -194,13 +194,13 @@ input:focus {
   max-height: 70px;
 }
 .tbody .groep {
-  display: block;
   margin: 20px;
   background-color: #0070C9;
   text-align: center;
 }
 .tbody div {
   width: 100px;
+  margin-bottom: 20px;
 }
 .tbody div p {
   margin-top: -20px !important;
@@ -250,10 +250,6 @@ h2 {
   font-size: 3em;
   line-height: 1.5em;
   font-family: 'Quicksand-Light-webfont';
-}
-
-header h1 {
-  display: none;
 }
 
 p {
@@ -421,8 +417,7 @@ nav ul {
   background-image: none;
   border: medium none;
   padding: 14px 12px;
-  width: 255px;
-  display: block;
+  width: 235px;
   transition: all 0.3s ease-out;
   margin: 30px auto;
   border-radius: 3px;
@@ -470,4 +465,9 @@ div.images_wrapper img {
   float: right;
   padding: 12px;
   text-decoration: none;
+}
+
+.filter {
+  margin-bottom: 50px;
+  padding: 12px;
 }

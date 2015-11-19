@@ -2,17 +2,17 @@
 
 $groupDAO = new GroupDAO();
 
-$app->get('/group/?', authorize() ,function() use ($groupDAO){
-    header("Content-Type: application/json");
-    echo json_encode($groupDAO->selectAll(), JSON_NUMERIC_CHECK);
-    exit();
-});
-
 // $app->get('/group/?', authorize() ,function() use ($groupDAO){
 //     header("Content-Type: application/json");
-//     echo json_encode($groupDAO->selectAllWithUsers(), JSON_NUMERIC_CHECK);
+//     echo json_encode($groupDAO->selectAll(), JSON_NUMERIC_CHECK);
 //     exit();
 // });
+
+$app->get('/group/?', authorize() ,function() use ($groupDAO){
+    header("Content-Type: application/json");
+    echo json_encode($groupDAO->selectAllWithUsers(), JSON_NUMERIC_CHECK);
+    exit();
+});
 
 $app->get('/group/:id/?', authorize(), function($id) use ($groupDAO){
     header("Content-Type: application/json");

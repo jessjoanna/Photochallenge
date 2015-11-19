@@ -24,6 +24,12 @@ var GroupCollection = Backbone.Collection.extend({
 		this.url = 'api/group';
 	},
 
+	filterGroups: function(query){
+		return this.filter(function(group){
+			return group.get('groupname').toLowerCase().indexOf(query) > -1 || group.get('username').toLowerCase().indexOf(query) > -1;
+		});
+	},
+
 	sync: function(method, model, options) {
 		if(model.methodUrl && model.methodUrl(method.toLowerCase())) {
 			options = options || {};

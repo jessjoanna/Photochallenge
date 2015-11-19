@@ -34,7 +34,6 @@ class UsersController extends Controller {
 
 		$data = array(
 			'user_id' => $_SESSION['user']['id'],
-			'group_id' => $group_id,
 			'day' => 0,
 			'start_date' => date("Y-m-d")
 		);

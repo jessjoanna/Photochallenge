@@ -4,9 +4,6 @@
 		<a href="index.php?page=register">Register</a>
 	</header>
 	<article>
-		<header>
-			<h1><span>User credentials</span></h1>
-		</header>
 			<form action="index.php?page=login" method="post">
 				<div class="form-group<?php if(!empty($errors['username'])) echo ' has-error'; ?>">
 					<div class="col-sm-10">

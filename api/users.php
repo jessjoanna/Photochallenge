@@ -42,7 +42,7 @@ $app->delete('/users/:id/?', authorize(), function() use ($userDAO){
     exit();
 });
 
-$app->put('/users/:id/?', authorize(), function() use ($app, $userDAO){
+$app->put('/users/:id/?', function($id) use ($app, $userDAO){
     header("Content-Type: application/json");
     $post = $app->request->post();
     if(empty($post)){

@@ -10,6 +10,13 @@ class GroupDAO extends DAO {
 		return $stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
 
+	// public function selectAll(){
+	// 	$sql = "SELECT * FROM `p_groups` INNER JOIN `p_users`";
+	// 	$stmt = $this->pdo->prepare($sql);
+	// 	$stmt->execute();
+	// 	return $stmt->fetchAll(PDO::FETCH_ASSOC);
+	// }
+
 	public function selectAllWithUsers(){
 		$sql = "SELECT * FROM `p_groups` INNER JOIN `p_users` ON p_users.group_id = p_groups.id";
 		$stmt = $this->pdo->prepare($sql);
