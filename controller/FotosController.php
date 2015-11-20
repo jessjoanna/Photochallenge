@@ -35,19 +35,21 @@ class FotosController extends Controller {
 				die();
 			}
 
-				move_uploaded_file($_FILES["imageInput"]["tmp_name"], WWW_ROOT. DS . 'assets' . DS . 'storage' . DS . $_FILES["imageInput"]["name"]);
+				move_uploaded_file($_FILES["imageInput"]["tmp_name"], WWW_ROOT. DS . 'assets' . DS . 'usergenerated' . DS . 'pictures' . DS . $_FILES["imageInput"]["name"]);
 
 
-				$picture = new Eventviva\ImageResize(WWW_ROOT . 'assets' . DS . 'storage' . DS . $_FILES['imageInput']['name']);
+				// $picture = new Eventviva\ImageResize(WWW_ROOT . 'assets' . DS . 'storage' . DS . $_FILES['imageInput']['name']);
 
-				$picture->resize(200,200);
-				$picture->save(WWW_ROOT . 'assets' . DS . 'storage' . DS . $name . '_th.' . $ext);
+				// $picture->resize(200,200);
+				// $picture->save(WWW_ROOT . 'assets' . DS . 'storage' . DS . $name . '_th.' . $ext);
 
 				$data = array(
 					'fotoname' => $_FILES["imageInput"]['name'],
-					'day' => $_POST['day'],
+					// 'day' => $_POST['day'],
+					'day' => 1,
 					'user_id' => $_SESSION['user']['id'],
-					'group_id' => $_POST['group_id']
+					// 'group_id' => $_POST['group_id'],
+					'group_id' => 1
 				);
 
 				$addObject = $this->fotoDAO->insert($data);

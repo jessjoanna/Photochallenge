@@ -27,7 +27,8 @@
 				<header class="hidden">
 					<h1>dag overzicht</h1>
 				</header>
-				<article class="submission-holder">
+				<section class="fotos"></section>
+{{!-- 				<article class="submission-holder">
 					<header class="hidden">
 						<h1>eerste plaats</h1>
 					</header>
@@ -57,7 +58,7 @@
 						</span>
 					</span>
 
-				</article>
+				</article> --}}
 				<article class="submit-today">
 					<header class="hidden">
 						<h1>pak een foto!</h1>
@@ -65,9 +66,17 @@
 					<p class="call-to-action">
 						Je kan nog 2e worden voor 2 punten!
 					</p>
-					<button>
+					<form id="file-form" method="POST">
+  				<input type="file" id="imageInput" name="imageInput" class="imageInput hidden" />
+  				{{!-- <input type="text" name="day" value="{{day}}"/> --}}
+  				{{!-- <input type="text" name="group_id" value="{{group_id}}"/> --}}
+					</form>
+						<button class="foto">
 						neem een foto!
 					</button>
+
+
 				</article>
 			</section>
+
 	</section>
