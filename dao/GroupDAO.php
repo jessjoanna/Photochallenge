@@ -24,6 +24,12 @@ class GroupDAO extends DAO {
 		return $stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
 
+	public function selectAllGroups() {
+		$sql = "SELECT * FROM `p_groups`";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->execute();
+		return $stmt->fetchAll(PDO::FETCH_ASSOC);
+	}
 
 	public function selectById($id) {
 		$sql = "SELECT * FROM `p_groups` WHERE `id` = :id";
@@ -93,10 +99,11 @@ class GroupDAO extends DAO {
 	    return false;
 	}
 
-	public function updateGroup($data){
-	    $sql = "UPDATE `p_groups` SET day = :day WHERE group_id = :id";
+	public function updateGroup($group_id, $data){
+		echo $data['day'];
+	    $sql = "UPDATE `p_groups` SET `day` = :day WHERE `id` = :group_id";
 	    $stmt = $this->pdo->prepare($sql);
-	    $stmt->bindValue(":id",$data['group_id']);
+	    $stmt->bindValue(":group_id",$group_id);
 	    $stmt->bindValue(":day",$data['day']);
 	    if($stmt->execute()){
 	        return true;

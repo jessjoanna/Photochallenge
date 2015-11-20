@@ -14,6 +14,12 @@ $app->get('/group/?', authorize() ,function() use ($groupDAO){
     exit();
 });
 
+$app->get('/admin/?', authorize() ,function() use ($groupDAO){
+    header("Content-Type: application/json");
+    echo json_encode($groupDAO->selectAllGroups(), JSON_NUMERIC_CHECK);
+    exit();
+});
+
 $app->get('/group/:id/?', authorize(), function($id) use ($groupDAO){
     header("Content-Type: application/json");
     echo json_encode($groupDAO->selectById($id), JSON_NUMERIC_CHECK);
@@ -42,12 +48,12 @@ $app->delete('/group/:id/?', authorize(), function() use ($groupDAO){
     exit();
 });
 
-$app->put('/group/:id/?', authorize(), function() use ($app, $groupDAO){
+$app->put('/group/:id/?', authorize(), function($id) use ($app, $groupDAO){
     header("Content-Type: application/json");
     $post = $app->request->post();
     if(empty($post)){
         $post = (array) json_decode($app->request()->getBody());
     }
-    echo json_encode($groupDAO->update($id, $post), JSON_NUMERIC_CHECK);
+    echo json_encode($groupDAO->updateGroup($id, $post), JSON_NUMERIC_CHECK);
     exit();
 });

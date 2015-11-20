@@ -3,6 +3,8 @@ var GroepDetailView = require('../views/GroepDetailView.js');
 var DayDetailView = require('../views/DayDetailView.js');
 var UserDetailView = require('../views/UserDetailView.js');
 var ScoresView = require('../views/ScoresView.js');
+var AdminView = require('../views/AdminView.js');
+
 
 var Application = Backbone.Router.extend({
 
@@ -11,6 +13,7 @@ var Application = Backbone.Router.extend({
 		"group/:groupname": "group",
 		"day": "day",
 		"user/:id": "user",
+		"admin": "admin",
 		'logout': "logout",
 		'scores': 'scores',
 		"*actions": "default"
@@ -18,6 +21,12 @@ var Application = Backbone.Router.extend({
 
 	logout: function(){
 		window.location.replace("index.php");
+	},
+
+	admin: function(){ console.log("admin");
+		this.empty();
+		this.admin = new AdminView();
+		$('.container').append(this.admin.render().el);
 	},
 
 	empty: function() {
