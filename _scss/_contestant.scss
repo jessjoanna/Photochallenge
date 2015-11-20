@@ -1,0 +1,195 @@
+#contestant {
+	header {
+		padding: 1px;
+	}
+}
+#contestant-header {
+	background-color: #fad700;
+	display: block;
+	box-sizing: border-box;
+	width: 180px;
+	height: 22px;
+	margin: 0 auto 10px auto;
+	color: #ffffff;
+	text-align: center;
+	h1 {
+		margin: 2px 0 0 0;
+	}
+	&:after {
+		content: "";
+		display: block;
+		float: right;
+
+		width: 0;
+		height: 0;
+		margin: -20px -12px 0 0;
+		border-top: #fad700 24px solid;
+		border-right: 12px solid transparent;
+	}
+	&:before {
+		content: "";
+		display: block;
+		float: left;
+
+		width: 0;
+		height: 0;
+		margin: -1px 0 0 -12px;
+		border-top: #fad700 22px solid;
+		border-left: 12px solid transparent;
+	}
+}
+
+#contestant-profile-photo {
+	width: 85px;
+	height: 80px;
+	display: block;
+	-webkit-clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
+	clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
+	margin: 0 auto 0 auto;
+	background-color: #fad700;
+	>img {
+		max-width: 80px;
+		max-height: 73px;
+		margin: 0 auto 0 auto;
+		padding: 4px 0 0 0;
+		display: block;
+		-webkit-clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
+		clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
+	}
+}
+
+#score-banner {
+	width: 100%;
+	height: 25px;
+	display: block;
+	text-align: center;
+	background-image: url("../assets/visual/h_contestant.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	box-sizing: border-box;
+
+	font-size: 2em;
+	color: #464343;
+	text-transform: uppercase;
+}
+
+#total-score-holder {
+	width: 55px;
+	height: 50px;
+	display: block;
+	box-sizing: border-box;
+	text-align: center;
+	background-image: url("../assets/visual/triangle2.svg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	margin: -10px auto 0 auto;
+	color: #ffffff;
+	font-size: 2em;
+	padding: 5px 0 0 0;
+}
+
+.contestant-day {
+	padding: 20px 0 0 0;
+	margin: 20px 0 0 0;
+	width: 300px;
+	height: 90px;
+	display: block;
+	box-sizing: border-box;
+	header {
+		color: #ffffff;
+		text-transform: capitalize;
+		width: 125px;
+		display: block;
+		float: left;
+		h1 {
+			background-color: #0fa6d8;
+			width: 80px;
+			height: 20px;
+			display: block;
+			
+			box-sizing: border-box;
+			padding: 2px 0 0 10px;
+			&:after {
+				content: "";
+				display: block;
+				float: right;
+		
+				width: 0;
+				height: 0;
+				margin: -2px -12px 0 0;
+				border-bottom: #0fa6d8 20px solid;
+				border-right: 12px solid transparent;
+			}
+		}
+		h2 {
+			background-color: #0fa6d8;
+			width: 80px;
+			height: 20px;
+			font-size: 1.2em;
+			margin: -5px 0 0 25px;
+		
+			text-align: center;
+			box-sizing: border-box;
+			padding: 2px 0 0 0;
+			&:after {
+				content: "";
+				display: block;
+				float: right;
+		
+				width: 0;
+				height: 0;
+				margin: -2px -12px 0 0;
+				border-top: #0fa6d8 20px solid;
+				border-right: 12px solid transparent;
+			}
+			&:before {
+				content: "";
+				display: block;
+				float: left;
+		
+				width: 0;
+				height: 0;
+				margin: -2px 0 0 -12px;
+				border-top: #0fa6d8 20px solid;
+				border-left: 12px solid transparent;
+			}
+		}
+	}
+	.contestant-day-score {
+		display: block;
+		width: 43px;
+		height: 37px;
+		margin: 10px 0 0 15px;
+		background-image: url("../assets/visual/triangle.svg");
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+
+		float: left;
+		text-align: center;
+		box-sizing: border-box;
+		color: #ffffff;
+		padding: 15px 0 0 0;
+		font-size: 1.5em;
+	}
+	.contestant-day-photo {
+		float: right;
+		clip-path: polygon(50% 0%, 50% 0%, 100% 50%, 50% 100%, 50% 100%, 0% 50%);
+		-webkit-clip-path: polygon(50% 0%, 50% 0%, 100% 50%, 50% 100%, 50% 100%, 0% 50%);
+		display: block;
+		width: 95px;
+		height: 95px;
+		background-color: #0fa6d8;
+		margin: -40px 0 0 0;
+		img {
+			clip-path: polygon(50% 0%, 50% 0%, 100% 50%, 50% 100%, 50% 100%, 0% 50%);
+			-webkit-clip-path: polygon(50% 0%, 50% 0%, 100% 50%, 50% 100%, 50% 100%, 0% 50%);
+			display: block;
+			max-width: 88px;
+			max-height: 88px;
+			margin: 4px 0 0 4px;
+		}
+	}
+}

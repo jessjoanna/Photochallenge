@@ -1,0 +1,35 @@
+#profile-photo-page {
+	width: 100%;
+	height: 85px;
+	margin: 0 0 15px 0;
+	background-image: url("../assets/visual/h_profilephoto.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	h1 {
+		display: none;
+	}
+}
+
+#profile-photo-holder {
+	background-image: url("../assets/visual/profile_holder.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+
+	display: block;
+	width: 100%;
+	height: 140px;
+	padding: 100px 0 0 0;
+}
+
+#profile-photo-preview {
+	position: static;
+	width: 165px;
+	height: 135px;
+	display: block;
+	margin: -50px auto 0 auto;
+	-webkit-clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
+	clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
+}
+

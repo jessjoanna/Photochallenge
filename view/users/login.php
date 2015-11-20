@@ -1,27 +1,30 @@
-<section class="login">
-	<header>
-		<h1><span>Login</span></h1>
-		<a href="index.php?page=register">Register</a>
+<section>
+	<header id="home">
+		<h1>
+			<span>Photochallenge</span>
+		</h1>
 	</header>
-	<article>
-			<form action="index.php?page=login" method="post">
-				<div class="form-group<?php if(!empty($errors['username'])) echo ' has-error'; ?>">
-					<div class="col-sm-10">
-						<input type="text" name="username" placeholder="Gebruikersnaam"  id="username" data-required=true class="form-control" value="<?php if(!empty($_POST['username']))
-						echo $_POST['username'];?>" />
-						<span class="error-message"> <?php if(!empty($errors['username'])) echo $errors['username']; ?></span>
-					</div>
-				</div>
-				<div class="form-group<?php if(!empty($errors['password'])) echo ' has-error'; ?>">
-					<!-- <label class="col-sm-2 control-label" for="password">Password:</label> -->
-					<div class="col-sm-10">
-						<input type="password" placeholder="Passwoord" name="password" id="password" data-required=true class="form-control" value="<?php if(!empty($_POST['password']))
-						echo $_POST['password'];?>" />
-						<span class="error-message"> <?php if(!empty($errors['password'])) echo $errors['password']; ?></span>
-					</div>
-				</div>
-				<input type="submit" value="Login">
-			</form>
-	</article>
+
+	<form action="index.php?page=login" method="post">
+		<span class="form_field">
+			<div class="form_icon">
+				<img src="assets/visual/icons/username.jpg" alt="username">
+			</div>
+			<input type="text" name="username" placeholder="Gebruikersnaam">&nbsp;
+		</span>
+		<span class="form_field">
+			<div class="form_icon">
+				<img src="assets/visual/icons/password.jpg" alt="passwoord">
+			</div>
+			<input type="text" name="password" placeholder="passwoord">&nbsp;
+		</span>
+
+		<input type="submit" value="Inloggen" id="login" class="button">
+
+	</form>
+
+	<span>
+		<a href="index.php?page=register"><button  id="to-register" class="button" type="button">registreren</button></a>
+	</span>
 </section>
 

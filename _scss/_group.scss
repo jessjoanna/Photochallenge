@@ -1,0 +1,166 @@
+#group-page {
+	width: 100%;
+	height: 85px;
+	margin: 0 0 15px 0;
+	background-image: url("../assets/visual/h_grouppage.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	h1 {
+		display: none;
+	}
+}
+
+#groups { // VRAGEN CONSULT
+	//background-color: #ff0000;
+	display: block;
+	height: 400px;
+	//overflow: scroll;
+}
+
+.group {
+	width: 312px;
+	margin: 0 auto 0 auto;
+	display: block;
+	header {
+		width: 200px;
+		display: block;
+		margin: 8px auto 0 auto;
+
+		text-align: center;
+		text-transform: uppercase;
+		color: #ffffff;
+		h1{
+			width: 170px;
+			height: 16px;
+			display: block;
+			margin: 0 auto 0 auto;
+			padding: 6px 0 0 0;
+
+			background-color: #fff000;
+			
+			&:after {
+				content: "";
+				display: block;
+				float: right;
+
+				width: 0;
+				height: 0;
+				margin: -6px -12px 0 0;
+
+				border-right: 12px solid transparent;
+			}
+			&:before {
+				content: "";
+				display: block;
+				float: left;
+
+				width: 0;
+				height: 0;
+				margin: -6px 0 0 -12px;
+
+				border-left: 12px solid transparent;
+			}
+		}
+	}
+}
+
+.group:nth-child(even) {
+	figure {
+		span {
+			background-color: #86a8c5;
+		}
+	}
+	header {
+		h1 {
+			background-color: #3e7fa8;
+			
+			&:before {
+				border-bottom: #3e7fa8 22px solid;
+			}
+			&:after {
+				border-bottom: #3e7fa8 22px solid;
+			}
+		}
+	}
+}
+
+.group:nth-child(odd) {
+	figure {
+		span {
+			background-color: #dfc900;
+		}
+	}
+	header {
+		h1 {
+			background-color: #dfc900;
+			
+			&:before {
+				border-bottom: #dfc900 22px solid;
+			}
+			&:after {
+				border-bottom: #dfc900 22px solid;
+			}
+		}
+	}
+}
+
+.group {
+	#players {
+		display:table;
+		margin: 8px auto 0 auto;
+	}
+	figure {
+		height: 120px;
+		width: 70px;
+		display: table-cell;
+		span {
+			display: block;
+			padding: 5px 0 0 0;
+			margin: 0 0 10px 0;
+			width: 70px;
+			height: 60px;
+			-webkit-clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
+			clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
+		}
+		img {
+			margin: -1px auto 0 auto;
+			display: block;
+			max-width: 62px;
+			height: 57px;
+			-webkit-clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
+			clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
+		}
+		figcaption {
+			font-family: 'liberationsans';
+			text-align: center;
+			p {
+				margin: 0 0 0 0;
+				font-size: 1.4em;
+				color: #313030;
+			}
+		}
+
+		&:first-of-type {
+			text-align:left;
+		}
+
+		&:nth-of-type(2) {
+			text-align:center;
+			padding: 0 12px 0 12px;
+		}
+
+		&:last-of-type {
+			text-align:right;
+		}
+
+	}
+}
+
+
+.empty-slot {
+	background-image: url("../assets/visual/icons/join.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 85% 85%;
+}

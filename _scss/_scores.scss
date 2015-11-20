@@ -1,0 +1,166 @@
+#scores-overview-header {
+	width: 100%;
+	height: 80px;
+	margin: 0 0 15px 0;
+	background-image: url("../assets/visual/h_scores.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	h1 {
+		display: none;
+	}
+}
+
+
+#scores-overview {
+	font-size: 1.8em;
+	text-align: center;
+	font-family: 'liberationsans';
+	>p {
+		margin: -10px 0 0 0;
+		>span {
+			color: #03a3ff;
+		}
+	}
+}
+
+.contestant {
+	width: 272px;
+	height: 100px;
+	display: block;
+	margin: 20px auto 0 auto;
+	position: relative;
+
+	.overall-rank {
+		position: absolute;
+		top: -15px;
+		left: -5px;
+		z-index: 10;
+		color: #ffffff;
+		padding: 10px 0 0 0;
+		width: 38px;
+		height: 25px;
+		display: block;
+		background-color: #fad700;
+		-webkit-mask-image: url("../assets/visual/triangle.svg");
+		mask-image: url("../assets/visual/triangle.svg");
+		background-repeat: no-repeat;
+	}
+	.contestant-preview {
+		position: absolute;
+		z-index: 8;
+		display: block;
+		margin: 10px 0 0 0;
+		background-color: #fad700;
+		padding: 2px 0 0 0;
+		width: 86px;
+		height: 73px;
+		-webkit-clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
+		clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
+		>img {
+			display: block;
+			padding: 2px 0 0 0;
+			margin: 0 auto 0 auto;
+			width: 78px;
+			height: 68px;
+			-webkit-clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
+			clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
+		}
+	}
+	.contestant-name {
+		text-align: left;
+		position: absolute;
+		z-index: 6;
+		display: block;
+		width: 200px;
+		height: 30px;
+		background-color: #fad700;
+		color: #ffffff;
+		box-sizing: border-box;
+		padding: 4px 0 0 40px;
+		right: 20px;
+		top: 18px;
+		&:after {
+			content: "";
+			display: block;
+			float: right;
+
+			width: 0;
+			height: 0;
+			margin: -6px -12px 0 0;
+			border-bottom: #fad700 32px solid;
+			border-right: 12px solid transparent;
+		}
+	}
+
+	.contestant-score {
+		text-align: left;
+		position: absolute;
+		z-index: 6;
+		display: block;
+		width: 150px;
+		height: 30px;
+		color: #ffffff;
+		box-sizing: border-box;
+		padding: 4px 0 0 40px;
+		background-color: #cfa525;
+		right: 70px;
+		top: 52px;
+		&:after {
+			content: "";
+			display: block;
+			float: right;
+
+			width: 0;
+			height: 0;
+			margin: -4px -12px 0 0;
+			border-top: #cfa525 32px solid;
+			border-right: 12px solid transparent;
+		}
+	}
+}
+
+.contestant {
+	&:first-of-type {
+		.overall-rank {
+			background-color: #fad700;
+		}
+		.contestant-preview {
+			background-color: #fad700;
+		}
+		.contestant-name {
+			background-color: #fad700;
+			&:after {
+				border-bottom: #fad700 32px solid;
+			}
+		}
+	}
+	&:nth-of-type(2) {
+		.overall-rank {
+			background-color: #b5b5b5;
+		}
+		.contestant-preview {
+			background-color: #b5b5b5;
+		}
+		.contestant-name {
+			background-color: #b5b5b5;
+			&:after {
+				border-bottom: #b5b5b5 32px solid;
+			}
+		}
+	}
+	&:last-of-type {
+		.overall-rank {
+			background-color: #864503;
+		}
+		.contestant-preview {
+			background-color: #864503;
+		}
+		.contestant-name {
+			background-color: #864503;
+			&:after {
+				border-bottom: #864503 32px solid;
+			}
+		}
+	}
+}

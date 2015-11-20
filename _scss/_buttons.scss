@@ -1,0 +1,51 @@
+.button {
+	border: none;
+	cursor: pointer;
+
+	width: 227px;
+	height: 45px;
+	display: block;
+	margin: 0 auto 15px auto;
+	background-color: #ffffff;
+	@include border-radius(100px 100px 100px 100px);
+	@include inner-box-shadow(0, 3px, 7px, 0, rgba(0,0,0,0.15));
+
+	text-align: center;
+	text-decoration: none;
+	font-size: 1.6em;
+	color: #ffffff;
+	font-family: 'liberationsans';
+
+	&:focus {
+		border: none;
+		outline: none !important;
+	}
+}
+
+.input-button{
+	line-height: 45px;
+	font-family: sans-serif;
+	font-family: 'liberationsans';
+}
+
+#login {
+	background-color: #61aeea;
+}
+
+#to-register {
+	background-color: #bcb689;
+	margin-top: 55px;
+}
+
+#register {
+	background-color: #bcb689;
+}
+
+#to-login {
+	background-color: #61aeea;
+	margin-top: 55px;
+}
+
+#load-picture-label {
+	background-color: #739dac;
+}

@@ -14,17 +14,19 @@ var files = {
 }
 
 var gulp 			= require('gulp'),
-	browserify 	= require('browserify'),
-	header 			= require('gulp-header'),
+	gutil 			= require('gulp-util'),
 	browserify 	= require('browserify'),
 	source 			= require('vinyl-source-stream'),
-	gutil 			= require('gulp-util'),
+	header 			= require('gulp-header'),
 	jshint 			= require('gulp-jshint'),
 	uglify 			= require('gulp-uglify'),
 	buffer 			= require('gulp-buffer'),
 	sourcemaps	= require('gulp-sourcemaps'),
 	compass 		= require('gulp-compass'),
-	imagemin 		= require('gulp-imagemin')
+	imagemin 		= require('gulp-imagemin'),
+	path 				= require('path'),
+	minifyCSS		= require('gulp-minify-css'),
+	rename			= require('gulp-rename');
 
 var pkg 			= require('./package.json');
 
@@ -103,6 +105,8 @@ gulp.task('cssScripts', function (){
 		gutil.log('Error:', gutil.colors.red(err.message));
 		gutil.beep();
 	})
+	.pipe(rename({ suffix: '.min' }))
+  .pipe(minifyCSS())
 	.pipe(gulp.dest('./css/'))
 });
 

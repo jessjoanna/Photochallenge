@@ -15,6 +15,10 @@ var GroepDetailView = Backbone.View.extend({
 	section: 'section',
 	className: 'groepdetail',
 
+	events: {
+		'click .day': 'clickDay'
+	},
+
 	initialize: function(options){
 
 		this.challengeCollection = new ChallengeCollection();
@@ -28,6 +32,7 @@ var GroepDetailView = Backbone.View.extend({
 		this.colorCollection.fetch();
 		this.challengeCollection.fetch();
 		this.objectCollection.fetch();
+
 
 		if(options && options.groupname){
 
@@ -44,6 +49,11 @@ var GroepDetailView = Backbone.View.extend({
 
 			this.listenTo(this.model, 'sync', this.render);
 		}
+	},
+
+	clickDay: function(e){
+		e.preventDefault();
+		Window.Application.navigate('day'), {trigger: true};
 	},
 
 	setColor: function(){
@@ -92,7 +102,6 @@ var GroepDetailView = Backbone.View.extend({
 
 	render: function(){
 		this.$el.html(this.template(this.model.attributes));
-		// this.$test = this.$el.find('.test');
 		return this;
 	}
 

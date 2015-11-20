@@ -1,0 +1,73 @@
+/* variables */
+/* kleur */
+
+$beig: #F6F4E9;
+$donker: #898884;
+$roze: #F64A65;
+$rozedonker: #8E414D;
+
+/* mixins */
+
+@mixin rotation($degree) {
+	-webkit-transform: rotate($degree);
+	-moz-transform: rotate($degree);
+	-ms-transform: rotate($degree);
+	-o-transform: rotate($degree);
+	border-transform: rotate($degree);
+}
+
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	-o-border-radius: $radius;
+	border-radius: $radius;
+}
+
+
+@mixin inner-box-shadow($top, $left, $blur, $spread, $color) {
+	-webkit-box-shadow:inset $top $left $blur $spread $color;
+	-moz-box-shadow:inset $top $left $blur $spread $color;
+	-ms-box-shadow:inset $top $left $blur $spread $color;
+	-o-box-shadow:inset $top $left $blur $spread $color;
+	box-shadow:inset $top $left $blur $spread $color;
+}
+
+
+@mixin text-shadow($sizex, $sizey, $blur, $color) {
+	-webkit-text-shadow: $sizex $sizey $blur $color;
+	-moz-text-shadow: $sizex $sizey $blur $color;
+	-ms-text-shadow: $sizex $sizey $blur $color;
+	-o-text-shadow: $sizex $sizey $blur $color;
+	text-shadow: $sizex $sizey $blur $color;
+}
+
+/* font-face */
+
+@font-face {
+	font-family: 'liberationsans';
+	src: url('../assets/fonts/liberationsans/LiberationSans-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'liberationsans';
+	src: url('../assets/fonts/liberationsans/LiberationSans-Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'cassannet';
+	src: url('../assets/fonts/cassannet/Cassannet.otf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'cassannetbold';
+	src: url('../assets/fonts/cassannet/Cassannet-Bold.otf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}

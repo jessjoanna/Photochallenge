@@ -1,0 +1,202 @@
+#date {
+	width: 100vw;
+	height: 100px;
+	overflow: hidden;
+	background-image: url("../assets/visual/h_day.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 165px 40px;
+	padding: 15px 0 0 0;
+	h1 {
+		height: 0px;
+		font-family: 'cassannetbold';
+		text-transform: uppercase;
+		font-size: 3em;
+		text-align: center;
+		@include text-shadow(3px, -3px, 0, rgba(0,238,0,0.5));
+		#day-number {
+			@include rotation(6deg);
+			margin: -4px 0 0 0;
+			position: relative;
+			top: -62px;
+			right: -40px;
+			font-size: 1.2em;
+		}
+		background-color: #ff0000;
+	}
+	h2 {
+		font-family: 'cassannet';
+		display: block;
+		text-align: center;
+		margin: 10px -12px 0 0;
+	}
+}
+
+#object-of-the-day {
+	display: block;
+	margin: 0 auto 0 auto;
+	text-align: center;
+	width: 160px;
+	height: 22px;
+	background-color: #0fa6d8;
+	color: #ffffff;
+	font-size: 1.2em;
+	&:after {
+		content: "";
+		display: block;
+		float: right;
+
+		width: 0;
+		height: 0;
+		margin: -30px -12px 0 0;
+		border-bottom: #0fa6d8 22px solid;
+		border-right: 12px solid transparent;
+	}
+	&:before {
+		content: "";
+		display: block;
+		float: left;
+
+		width: 0;
+		height: 0;
+		margin: 0 0 0 -12px;
+		border-bottom: #0fa6d8 22px solid;
+		border-left: 12px solid transparent;
+	}
+}
+
+#object-preview {
+	display: block;
+	width: 285px;
+	height: 47px;
+	margin: 0 auto 0 auto;
+	background-color: #0fa6d8;
+	p {
+		color: #5a303c;
+		font-family: 'cassannet';
+		font-size: 2.6em;
+		float: right;
+		margin: 0 10px 0 0;
+	}
+}
+
+.score-banner {
+	width: 285px;
+	height: 30px;
+	display: block;
+	margin: 0 auto 0 auto;
+	p {
+		box-sizing: border-box;
+		color: #ffffff;
+		font-size: 1.1em;
+		text-align: center;
+		padding: 12px 0 0 0;
+		background-image: url("../assets/visual/triangle.svg");
+		background-repeat: no-repeat;
+		width: 30px;
+		height: 30px;
+		font-family: 'liberationsans';
+		font-weight: bold;
+	}
+}
+
+.submission-details {
+	display: block;
+	margin: 0 auto 0 auto;
+	width: 285px;
+	.uploaded {
+		float: left;
+		width: 140px;
+		height: 100px;
+		border: 3px solid #0fa6d8;
+	}
+}
+
+.submission-user-details {
+	width: 135px;
+	height: 100px;
+	display: block;
+	box-sizing: border-box;
+	float: right;
+	>p {
+		font-size: 1.2em;
+		font-weight: bold;
+		color: #4b4848;
+		&:last-of-type {
+			font-size: 1em;
+		}
+	}
+	>button {
+		border: none;
+		width: 22px;
+		height: 22px;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: 60%;
+		&:first-of-type {
+			background-color: #3cc400;
+			background-image: url("../assets/visual/icons/good.png");
+		}
+		&:last-of-type {
+			margin: 0 0 0 5px;
+			background-color: #e26f6e;
+			background-image: url("../assets/visual/icons/nogood.png");
+		}
+	}
+}
+
+.user-profile-photo {
+	-webkit-clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
+	clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
+	width: 55px;
+	height: 50px;
+	background-color: #0fa6d8;
+	display: block;
+	box-sizing: border-box;
+	margin: -25px 0 0 0;
+	padding: 2px 0 0 0;
+	>img {
+		-webkit-clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
+		clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
+		width: 50px;
+		height: 45px;
+		display: block;
+		margin: 0 auto 0 auto;
+	}
+}
+
+.submission-holder {
+	display: block;
+	height: 130px;
+	padding: 0 0 30px 0;
+	border-bottom: 2px solid #ffffff;
+}
+
+.submit-today {
+	>button {
+		border: none;
+		width: 145px;
+		height: 35px;
+		padding: 0 5px 0 30px;
+		display: block;
+		margin: 0 auto 0 auto;
+		background-color: #beb67f;
+		color: #ffffff;
+		font-weight: bold;
+		font-family: 'liberationsans';
+		font-size: 1.4em;
+		@include border-radius(100px 100px 100px 100px);
+		@include inner-box-shadow(0, 3px, 7px, 0, rgba(0,0,0,0.15));
+		background-image: url("../assets/visual/icons/cam.png");
+		background-position: 5% 40%;
+		background-repeat: no-repeat;
+		background-size: 25px 18px;
+	}
+}
+
+.call-to-action {
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+

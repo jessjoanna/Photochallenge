@@ -132,18 +132,18 @@ class UsersController extends Controller {
 
 	public function _handleImageUpload($image){
 			/* Process image */
-			move_uploaded_file($image["picture"]["tmp_name"], WWW_ROOT. DS . 'assets' . DS . 'storage' . DS . $image["picture"]["name"]);
+			move_uploaded_file($image["picture"]["tmp_name"], WWW_ROOT. DS . 'assets' . DS . 'usergenerated' . DS . 'profilepictures' . DS . $image["picture"]["name"]);
 			$fileData = array();
 			$fileData['extension'] 	= pathinfo($image["picture"]['name'], PATHINFO_EXTENSION);
 			$fileData['name'] 		= pathinfo($image["picture"]['name'], PATHINFO_FILENAME);
 			$dotPos = strrpos($image['picture']['name'], '.');
 			$name 	= substr($image['picture']['name'], 0, $dotPos);
 			$ext 	= substr($image['picture']['name'], $dotPos + 1);
-			$picture = new Eventviva\ImageResize(WWW_ROOT . 'assets' . DS . 'storage' . DS . $image['picture']['name']);
-			$picture->resize(400,400);
-			$picture->save(WWW_ROOT . 'assets' . DS . 'storage' . DS . $name .".". $ext);
-			$picture->resize(100,100);
-			$picture->save(WWW_ROOT . 'assets' . DS . 'storage' . DS . $name . '_th.' . $ext);
+			// $picture = new Eventviva\ImageResize(WWW_ROOT . 'assets' . DS . 'usergenerated' . DS .  'profilepictures' . DS . $image['picture']['name']);
+			// $picture->resize(400,400);
+			// $picture->save(WWW_ROOT . 'assets' . DS . 'usergenerated' . DS . 'profilepictures' . DS . $name .".". $ext);
+			// $picture->resize(100,100);
+			// $picture->save(WWW_ROOT . 'assets' . DS . 'usergenerated' . DS . 'profilepictures' . DS . $name . '_th.' . $ext);
 	}
 	private function _handleLogin() {
 		$errors = array();

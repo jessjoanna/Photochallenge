@@ -6,9 +6,7 @@ function init() {
 	if(getParameterByName('page') === 'register' ){
 		register1 = document.querySelector('.register01');
 		register2 = document.querySelector('.register02');
-		register3 = document.querySelector('.register03');
-		register4 = document.querySelector('.register04');
-
+		registerHeader = document.getElementById('register-page');
 		register();
 	}
 }
@@ -25,53 +23,53 @@ function show2(e){
 
 	//Foto preview
 
-	// if (window.File && window.FileReader && window.FileList && window.Blob) {
-	// 	if(document.querySelector('.add')){
-	// 		var imageInput = document.querySelector('input[name=picture]');
-	//   	var errorElement = imageInput.parentNode.querySelector('.error-message');
-	//   	imageInput.addEventListener('change', function(event){
-	//     	errorElement.style.display = 'none';
-	//     	var img = imageInput.parentNode.querySelector('img');
+	if (window.File && window.FileReader && window.FileList && window.Blob) {
+		if(document.querySelector('.add')){
+			var imageInput = document.querySelector('input[name=picture]');
+	  	var errorElement = imageInput.parentNode.querySelector('.error-message');
+	  	imageInput.addEventListener('change', function(event){
+	    	errorElement.style.display = 'none';
+	    	var img = imageInput.parentNode.querySelector('img');
 
-	//     	if(img) {
-	//       	imageInput.parentNode.removeChild(img);
-	//     	}
+	    	if(img) {
+	      	imageInput.parentNode.removeChild(img);
+	    	}
 
-	//     	if(imageInput.files.length > 0) {
-	//       	var file = imageInput.files[0];
-	//       	var error = '';
+	    	if(imageInput.files.length > 0) {
+	      	var file = imageInput.files[0];
+	      	var error = '';
 
-	//       	if(file.type.search('image') != 0) {
-	//         	errorElement.innerText = 'The selected file is not an image';
-	//         	errorElement.style.display = 'block';
-	//       	} else {
-	//         	var reader = new FileReader();
-	//         	reader.onload = function(event) {
-	//           	var img = document.createElement('img');
-	//           	img.onload = function() {
-	//             	if(img.width != 612 || img.height != 612) {
-	//               	errorElement.innerText = 'The image needs to be 612x612';
-	//               	errorElement.style.display = 'block';
-	//             	} else {
-	//               	imageInput.parentNode.appendChild(img);
-	//             	}
-	//           	}
-	//           img.setAttribute('src', reader.result);
+	      	if(file.type.search('image') != 0) {
+	        	errorElement.innerText = 'The selected file is not an image';
+	        	errorElement.style.display = 'block';
+	      	} else {
+	        	var reader = new FileReader();
+	        	reader.onload = function(event) {
+	        		var span = document.getElementById('profile-photo-holder');
+	        		console.log(span);
+	          	var img = document.createElement('img');
+	          	img.id = 'profile-photo-preview';
+	          	span.appendChild(img);
 
-	//         };
-	//         reader.readAsDataURL(file);
-	//       }
-	//     }
-	//   });
-	// 	}
+	          	// img.onload = function() {
+	           //   imageInput.parentNode.appendChild(img);
+	          	// }
+	          img.setAttribute('src', reader.result);
 
-	// }
+	        };
+	        reader.readAsDataURL(file);
+	      }
+	    }
+	  });
+		}
+
+	}
 
 	register1.classList.add('hidden');
+	registerHeader.classList.add('hidden');
 	register2.classList.remove('hidden');
 
 	register2btn = document.querySelector('.register2btn');
-	register2btn.addEventListener('click', show3);
 }
 
 function getParameterByName(name) {

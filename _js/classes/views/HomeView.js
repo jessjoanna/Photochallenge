@@ -32,6 +32,7 @@ var HomeView = Backbone.View.extend({
 			day: 0,
 			start_date: moment().format('YYYY-MM-DD')
 		});
+
 	},
 
 	inputFilter: function(e){
@@ -69,7 +70,7 @@ var HomeView = Backbone.View.extend({
 
 	render: function(){
 		this.$el.html(this.template);
-		this.$groups = this.$el.find('.tbody');
+		this.$groups = this.$el.find('.groups');
 		return this;
 
 	}

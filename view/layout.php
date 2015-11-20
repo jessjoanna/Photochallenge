@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
-    <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
-    <title>Photochallenge</title>
-    <link rel="stylesheet" href="css/screen.css">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-    </head>
-    <body>
+	<link rel="stylesheet" type="text/css" href="css/screen.min.css">
+
+	<title>PhotoChallenge</title>
+</head>
+
+<body>
 
 		<div class="container" id="container" class="main-centered">
 		    <?php if(!empty($_SESSION['info'])): ?><div class="info box"><?php echo $_SESSION['info'];?></div><?php endif; ?>

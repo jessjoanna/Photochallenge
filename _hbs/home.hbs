@@ -1,9 +1,32 @@
-<a class="logout" href="index.php?page=logout">Logout</a>
+<section>
+	<a class="logout" href="index.php?page=logout">Logout</a>
+	<header id="group-page">
+		<h1>
+			<span>Kies een groep of maak er één.</span>
+		</h1>
+	</header>
 
-<input type="text" name="groupname" class="groupname" value="" placeholder="nieuwe groep">
-<input type="submit" name="" class="add" value="submit">
+	<section>
+		<header class="hidden">
+			<h1>
+				zoeken
+			</h1>
+		</header>
+ 			<div id="new-group">
+ 				<input type="text" name="groupname" class="groupname" placeholder="nieuwe groep" value="">
+				<button id="add-new-group" class="add" type="submit"><p>nieuwe groep</p></button>
+			</div>
+	</section>
 
-<section class="groups">
-	<input type="text" name="filter" placeholder="Filter" class="filter"/>
-	<div class="tbody"></div>
-</section>
+	<section>
+		<header class="hidden">
+			<h1>
+				groepen
+			</h1>
+		</header>
+		<input id="search-group" type="text" name="filter" placeHolder="Zoeken..." class="filter"/>
+
+		<span id="groups" class="groups">
+		</span>
+	</section>
+</section
