@@ -75,18 +75,10 @@ class UserDAO extends DAO {
 		$errors = $this->getValidationErrors($data);
 		if(empty($errors)){
 			$sql = "UPDATE `p_users`
-											SET `group_id`= :group_id,
-															`username` = :username,
-															`picture` = :picture,
-															`password` = :password,
-															`role`= :role,
+											SET `group_id`= :group_id
 											WHERE `id` = :id";
 			$stmt = $this->pdo->prepare($sql);
 			$stmt->bindValue(':group_id', $data['group_id']);
-			$stmt->bindValue(':username', $data['username']);
-			$stmt->bindValue(':password', $data['password']);
-			$stmt->bindValue(':role', $data['role']);
-			$stmt->bindValue(':picture', $data['picture']);
 			$stmt->bindvalue(':id', $id);
 			if($stmt->execute()){
 				return $this->selectById($id);

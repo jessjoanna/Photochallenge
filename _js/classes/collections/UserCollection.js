@@ -3,39 +3,39 @@ var User = require('../models/User.js');
 var UserCollection = Backbone.Collection.extend({
 
 	model: User,
-	url: 'api/users',
-
-	// initialize: function(options){
-
-	// 	if(options) {
-	// 		this.par = options.user;
-	// 	}
-	// },
+	url: 'api/users/',
 
 	initialize: function(options){
 
 		if(options) {
-			this.id = options.id;
+			this.par = options.user;
 		}
 	},
 
-	// methodUrl: function(method) {
+	// initialize: function(options){
 
-	// 	if(method === "read" && this.par) {
-	// 		this.url = 'api/users/' + this.par;
-	// 		return;
+	// 	if(options) {
+	// 		this.id = options.id;
 	// 	}
-	// 	this.url = 'api/users';
 	// },
 
 	methodUrl: function(method) {
 
-		if(method === "read" && this.id) {
-			this.url = 'api/users/' + this.id;
+		if(method === "read" && this.par) {
+			this.url = 'api/users/' + this.par;
 			return;
 		}
 		this.url = 'api/users';
 	},
+
+	// methodUrl: function(method) {
+
+	// 	if(method === "read" && this.id) {
+	// 		this.url = 'api/users/' + this.id;
+	// 		return;
+	// 	}
+	// 	this.url = 'api/users';
+	// },
 
 	sync: function(method, model, options) {
 		if(model.methodUrl && model.methodUrl(method.toLowerCase())) {

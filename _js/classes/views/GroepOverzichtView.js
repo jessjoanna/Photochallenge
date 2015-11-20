@@ -49,7 +49,9 @@ var GroepOVerzichtView = Backbone.View.extend({
 		//console.log(this.user.models[0].attributes.id);
 		//console.log(this.user.models[0]);
 
+
 		this.userNow.set('id', this.user.models[0].attributes.id);
+
 		this.userNow.fetch({
 			success: function(model, response){
 				if(response.length === 0){

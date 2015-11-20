@@ -1,8 +1,12 @@
 var template = require('../../../_hbs/home.hbs');
 
 var GroupCollection = require('../collections/GroupCollection.js');
+var UserCollection = require('../collections/UserCollection.js');
+
 
 var GroepOverzichtView = require('../views/GroepOverzichtView.js');
+var User = require('../models/User.js');
+
 
 var HomeView = Backbone.View.extend({
 
@@ -16,9 +20,27 @@ var HomeView = Backbone.View.extend({
 	},
 
 	initialize: function(){
+		this.user = new UserCollection({user: 'self'});
+		this.listenTo(this.user, 'sync', this.setGroup);
+		this.user.fetch();
+
+		this.userNow = new User();
+
 		this.groupCollection = new GroupCollection();
 		this.listenTo(this.groupCollection, 'sync', this.renderGroups);
 		this.groupCollection.fetch();
+	},
+
+	setGroup: function(){
+		this.userNow.set('id', this.user.models[0].attributes.id);
+
+		this.userNow.fetch({
+			success: function(model, response){
+				if(response.length === 0){
+					Window.Application.navigate('home', {trigger: true});
+				}
+			}
+		});
 	},
 
 	clickAddGroup: function(e){
@@ -33,6 +55,9 @@ var HomeView = Backbone.View.extend({
 			start_date: moment().format('YYYY-MM-DD')
 		});
 
+		this.userNow.set('group_id', this.groupCollection.length);
+		this.userNow.save();
+		Window.Application.navigate('group/' + this.groupCollection.length, {trigger: true});
 	},
 
 	inputFilter: function(e){
