@@ -16,7 +16,7 @@
 			<div class="form_icon">
 				<img src="assets/visual/icons/password.jpg" alt="passwoord">
 			</div>
-			<input type="text" name="password" placeholder="passwoord">&nbsp;
+			<input type="password" name="password" placeholder="passwoord">&nbsp;
 		</span>
 
 		<input type="submit" value="Inloggen" id="login" class="button">

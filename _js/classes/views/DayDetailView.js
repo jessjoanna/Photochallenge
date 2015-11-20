@@ -9,7 +9,9 @@ var DayDetailView = Backbone.View.extend({
 
 	events: {
 		'click .foto': 'clickFoto',
-		'change #imageInput': 'submitFoto'
+		'change #imageInput': 'submitFoto',
+		'click .scores': 'clickScores',
+		'click .back': 'clickBack'
 	},
 
 	initialize: function(){
@@ -57,8 +59,17 @@ var DayDetailView = Backbone.View.extend({
 				console.log(data.responseText);
 			}
 		});
+	},
 
-		console.log(fd);
+	clickScores: function(e){
+		e.preventDefault();
+		Window.Application.navigate('scores', {trigger: true});
+	},
+
+	clickBack: function(e){
+		e.preventDefault();
+		// Window.Application.navigate('', {trigger:true});
+		console.log('weekoverzicht');
 	},
 
 	render: function(){

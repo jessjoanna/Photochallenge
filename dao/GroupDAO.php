@@ -24,6 +24,7 @@ class GroupDAO extends DAO {
 		return $stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
 
+
 	public function selectById($id) {
 		$sql = "SELECT * FROM `p_groups` WHERE `id` = :id";
 		$stmt = $this->pdo->prepare($sql);

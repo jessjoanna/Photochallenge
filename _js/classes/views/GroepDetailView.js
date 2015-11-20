@@ -16,7 +16,9 @@ var GroepDetailView = Backbone.View.extend({
 	className: 'groepdetail',
 
 	events: {
-		'click .day': 'clickDay'
+		'click .day': 'clickDay',
+		'click .back': 'clickAfmelden',
+		'click .scores': 'clickScores'
 	},
 
 	initialize: function(options){
@@ -53,7 +55,17 @@ var GroepDetailView = Backbone.View.extend({
 
 	clickDay: function(e){
 		e.preventDefault();
-		Window.Application.navigate('day'), {trigger: true};
+		Window.Application.navigate('day', {trigger: true});
+	},
+
+	clickAfmelden: function(e){
+		e.preventDefault();
+		Window.Application.navigate('logout', {trigger: true});
+	},
+
+	clickScores: function(e){
+		e.preventDefault();
+		Window.Application.navigate('scores', {trigger:true});
 	},
 
 	setColor: function(){

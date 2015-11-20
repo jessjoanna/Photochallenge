@@ -3,7 +3,6 @@ var template = require('../../../_hbs/home.hbs');
 var GroupCollection = require('../collections/GroupCollection.js');
 var UserCollection = require('../collections/UserCollection.js');
 
-
 var GroepOverzichtView = require('../views/GroepOverzichtView.js');
 var User = require('../models/User.js');
 
